@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>One Last Challenge 🎈</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="balloon-page">
+
+    <!-- Floating hearts -->
+    <div class="hearts"></div>
+
+    <main class="balloon-game">
+
+        <!-- HEADER -->
+        <section class="game-header">
+
+            <p class="small-title">
+                ONE LAST CHALLENGE 💗
+            </p>
+
+            <h1>
+                Pop The Balloons 🎈
+            </h1>
+
+            <p class="game-description">
+                There are <strong>22 balloons</strong> waiting for you.
+                <br>
+                Pop them all to unlock your final surprise!
+            </p>
+
+            <div class="balloon-counter">
+                <span id="poppedCount">0</span>
+                <span class="counter-divider">/</span>
+                <span>22</span>
+            </div>
+
+            <p id="gameMessage" class="game-message">
+                Tap the balloons before they escape! 🎈
+            </p>
+
+        </section>
+
+
+        <!-- BALLOON PLAY AREA -->
+        <section id="balloonArea" class="balloon-area"></section>
+
+
+        <!-- COMPLETION MESSAGE -->
+        <section id="gameComplete" class="game-complete">
+
+            <div class="complete-icon">
+                🎉
+            </div>
+
+            <h2>
+                You Did It! ❤️
+            </h2>
+
+            <p class="birthday-message">
+                It's your <strong>22nd birthday</strong> 🎂
+            </p>
+
+            <p class="last-message">
+                And now...
+                <br>
+                there's only one thing left.
+            </p>
+
+            <div class="heart-line">
+                ❤️ ❤️ ❤️
+            </div>
+
+            <button
+                class="final-button"
+                onclick="goTo('final.html')"
+            >
+                Reveal Your Final Surprise 💝
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        /*
+        ============================================
+        BALLOON GAME
+        ============================================
+        */
+
+        const TOTAL_BALLOONS = 22;
+
+        let poppedCount = 0;
+        let balloonId = 0;
+
+        const balloonArea = document.getElementById("balloonArea");
+        const poppedCounter = document.getElementById("poppedCount");
+        const gameMessage = document.getElementById("gameMessage");
+        const gameComplete = document.getElementById("gameComplete");
+
+
+        /*
+        ============================================
+        BALLOON COLORS
+        ============================================
+        */
+
+        const balloonColors = [
+            "#ff4f81",
+            "#ff6b9d",
+            "#ff8fab",
+            "#c77dff",
+            "#9d4edd",
+            "#ff758f",
+            "#ff477e",
+            "#f72585",
+            "#7209b7",
+            "#4361ee"
+        ];
+
+
+        /*
+        ============================================
+        FUN MESSAGES
+        ============================================
+        */
+
+        const messages = [
+            "Got one! 😏",
+            "Nice! 🎈",
+            "Keep going! ❤️",
+            "That was easy! 😂",
+            "Another one! 🎉",
+            "You're doing great! 💗",
+            "Pop pop pop! 🎈",
+            "Almost there! 👀",
+            "Don't let them escape! 😆",
+            "You're too good at this! ❤️",
+            "Keep popping! 🎈",
+            "One more step! 💕"
+        ];
+
+
+        /*
+        ============================================
+        CREATE A BALLOON
+        ============================================
+        */
+
+        function createBalloon() {
+
+            /*
+            Don't create more balloons after
+            the 22nd balloon has been popped.
+            */
+
+            if (poppedCount >= TOTAL_BALLOONS) {
+                return;
+            }
+
+
+            balloonId++;
+
+
+            const balloon = document.createElement("button");
+
+            balloon.className = "flying-balloon";
+
+            balloon.type = "button";
+
+            balloon.setAttribute(
+                "aria-label",
+                "Pop balloon"
+            );
+
+
+            /*
+            Random horizontal position
+            */
+
+            const leftPosition =
+                Math.random() * 88 + 4;
+
+
+            /*
+            Random size
+            */
+
+            const size =
+                Math.random() * 18 + 65;
+
+
+            /*
+            Random animation duration
+            */
+
+            const duration =
+                Math.random() * 4 + 7;
+
+
+            /*
+            Random delay
+            */
+
+            const delay =
+                Math.random() * 1.5;
+
+
+            /*
+            Random horizontal movement
+            */
+
+            const drift =
+                Math.random() * 140 - 70;
+
+
+            /*
+            Random rotation
+            */
+
+            const rotation =
+                Math.random() * 30 - 15;
+
+
+            /*
+            Random color
+            */
+
+            const color =
+                balloonColors[
+                    Math.floor(
+                        Math.random() *
+                        balloonColors.length
+                    )
+                ];
+
+
+            balloon.style.left =
+                leftPosition + "%";
+
+            balloon.style.setProperty(
+                "--balloon-size",
+                size + "px"
+            );
+
+            balloon.style.setProperty(
+                "--float-duration",
+                duration + "s"
+            );
+
+            balloon.style.setProperty(
+                "--float-delay",
+                delay + "s"
+            );
+
+            balloon.style.setProperty(
+                "--drift",
+                drift + "px"
+            );
+
+            balloon.style.setProperty(
+                "--rotation",
+                rotation + "deg"
+            );
+
+            balloon.style.setProperty(
+                "--balloon-color",
+                color
+            );
+
+
+            /*
+            Balloon HTML
+            */
+
+            balloon.innerHTML = `
+                <span class="balloon-body"></span>
+                <span class="balloon-shine"></span>
+                <span class="balloon-knot"></span>
+                <span class="balloon-string"></span>
+            `;
+
+
+            /*
+            POP EVENT
+            */
+
+            balloon.addEventListener(
+                "click",
+                function () {
+
+                    popBalloon(
+                        balloon
+                    );
+
+                }
+            );
+
+
+            /*
+            Add to screen
+            */
+
+            balloonArea.appendChild(
+                balloon
+            );
+
+
+            /*
+            Automatically remove balloon
+            when it reaches the top.
+            */
+
+            setTimeout(
+                function () {
+
+                    if (
+                        balloon &&
+                        balloon.parentNode &&
+                        !balloon.classList.contains("popped")
+                    ) {
+
+                        balloon.remove();
+
+                    }
+
+                },
+                (duration + delay + 1) * 1000
+            );
+
+        }
+
+
+        /*
+        ============================================
+        POP BALLOON
+        ============================================
+        */
+
+        function popBalloon(balloon) {
+
+            /*
+            Prevent double click
+            */
+
+            if (
+                balloon.classList.contains("popped")
+            ) {
+                return;
+            }
+
+
+            /*
+            Prevent popping after 22
+            */
+
+            if (
+                poppedCount >= TOTAL_BALLOONS
+            ) {
+                return;
+            }
+
+
+            balloon.classList.add("popped");
+
+
+            /*
+            Get balloon position
+            */
+
+            const rect =
+                balloon.getBoundingClientRect();
+
+
+            const x =
+                rect.left +
+                rect.width / 2;
+
+
+            const y =
+                rect.top +
+                rect.height / 2;
+
+
+            /*
+            POP EFFECT
+            */
+
+            createPopEffect(
+                x,
+                y
+            );
+
+
+            /*
+            Update count
+            */
+
+            poppedCount++;
+
+
+            poppedCounter.textContent =
+                poppedCount;
+
+
+            /*
+            Random message
+            */
+
+            if (
+                poppedCount <
+                TOTAL_BALLOONS
+            ) {
+
+                const randomMessage =
+                    messages[
+                        Math.floor(
+                            Math.random() *
+                            messages.length
+                        )
+                    ];
+
+                gameMessage.textContent =
+                    randomMessage;
+
+            }
+
+
+            /*
+            Remove balloon
+            */
+
+            setTimeout(
+                function () {
+
+                    balloon.remove();
+
+                },
+                250
+            );
+
+
+            /*
+            22ND BALLOON
+            */
+
+            if (
+                poppedCount ===
+                TOTAL_BALLOONS
+            ) {
+
+                finishGame();
+
+            }
+
+        }
+
+
+        /*
+        ============================================
+        POP EFFECT
+        ============================================
+        */
+
+        function createPopEffect(x, y) {
+
+            const effect =
+                document.createElement("div");
+
+            effect.className =
+                "balloon-pop-effect";
+
+
+            effect.innerHTML = `
+                <span>💥</span>
+                <span>✨</span>
+                <span>💗</span>
+            `;
+
+
+            effect.style.left =
+                x + "px";
+
+            effect.style.top =
+                y + "px";
+
+
+            document.body.appendChild(
+                effect
+            );
+
+
+            setTimeout(
+                function () {
+
+                    effect.remove();
+
+                },
+                700
+            );
+
+        }
+
+
+        /*
+        ============================================
+        GAME COMPLETED
+        ============================================
+        */
+
+        function finishGame() {
+
+            /*
+            Stop new balloons
+            */
+
+            poppedCount =
+                TOTAL_BALLOONS;
+
+
+            /*
+            Update counter
+            */
+
+            poppedCounter.textContent =
+                TOTAL_BALLOONS;
+
+
+            /*
+            Main message
+            */
+
+            gameMessage.innerHTML =
+                "22 / 22 balloons popped! 🎉";
+
+
+            /*
+            Create lots of confetti
+            */
+
+            if (
+                typeof createConfetti ===
+                "function"
+            ) {
+
+                createConfetti();
+
+            }
+
+
+            /*
+            Show completion message
+            */
+
+            setTimeout(
+                function () {
+
+                    gameComplete.classList.add(
+                        "show"
+                    );
+
+                },
+                700
+            );
+
+        }
+
+
+        /*
+        ============================================
+        CONTINUOUS BALLOON SPAWNING
+        ============================================
+        */
+
+        function startBalloonSpawner() {
+
+            /*
+            Initial balloons
+            */
+
+            for (
+                let i = 0;
+                i < 9;
+                i++
+            ) {
+
+                setTimeout(
+                    function () {
+
+                        createBalloon();
+
+                    },
+                    i * 500
+                );
+
+            }
+
+
+            /*
+            Keep creating balloons
+            */
+
+            const spawner =
+                setInterval(
+                    function () {
+
+                        if (
+                            poppedCount >=
+                            TOTAL_BALLOONS
+                        ) {
+
+                            clearInterval(
+                                spawner
+                            );
+
+                            return;
+
+                        }
+
+
+                        /*
+                        Keep several balloons
+                        on the screen.
+                        */
+
+                        createBalloon();
+
+
+                    },
+                    750
+                );
+
+        }
+
+
+        /*
+        ============================================
+        START GAME
+        ============================================
+        */
+
+        startBalloonSpawner();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body class="final-body">
+
+<canvas id="fireworks"></canvas>
+
+<div class="final-hearts"></div>
+
+
+<main class="final-page">
+
+    <div id="countdown"
+         class="countdown">
+
+        <span>3</span>
+
+    </div>
+
+
+    <div id="finalContent"
+         class="final-content">
+
+        <p class="small-text">
+            <!-- AND FINALLY... -->
+        </p>
+
+        <div class="final-photo">
+
+            <img src="images/photo4.jpg"
+                 alt="Beautiful memory">
+
+        </div>
+
+        <h1>
+            HAPPY
+            <br>
+            BIRTHDAY
+            <br>
+
+            <span>Kunjaaaaaaa ❤️</span>
+        </h1>
+
+        <p>
+            May your smile stay bright,
+            your heart stay happy,
+            and your life be filled with
+            beautiful moments.
+        </p>
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <p class="final-message">
+            You deserve all the happiness
+            in the world. 🌎❤️
+        </p>
+
+        <p class="signature">
+            — From someone who loves you soooooo much !!!!!!! ❤️
+        </p>
+
+    </div>
+
+</main>
+
+
+<script src="js/script.js"></script>
+
+<script>
+
+window.addEventListener("load", () => {
+
+    const countdown =
+        document.getElementById("countdown");
+
+    const finalContent =
+        document.getElementById("finalContent");
+
+    let number = 3;
+
+    const timer =
+        setInterval(() => {
+
+            number--;
+
+            if (number > 0) {
+
+                countdown.innerHTML =
+                    `<span>${number}</span>`;
+
+            } else {
+
+                clearInterval(timer);
+
+                countdown.classList.add("hide");
+
+                setTimeout(() => {
+
+                    finalContent.classList.add("show");
+
+                    startFireworks();
+
+                    createConfetti();
+
+                }, 600);
+
+            }
+
+        }, 1000);
+
+});
+
+</script>
+
+</body>
+</html>

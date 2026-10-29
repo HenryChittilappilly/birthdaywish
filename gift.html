@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Gift For You 🎁</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<main class="page gift-page">
+
+    <div class="section-card">
+
+        <p class="small-text">
+            BIRTHDAY PRESENT
+        </p>
+
+        <h1>
+            Oru karyam
+            <br>
+            kude ind 🎁
+        </h1>
+
+        <p class="description">
+            valiya sambavam onnum alla enikk ullil thonnanath aantta ithil olle
+        </p>
+
+    </div>
+
+
+    <div class="gift-container">
+
+        <div id="giftBox"
+             class="gift-box"
+             onclick="openGift()">
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-body"></div>
+
+            <div class="gift-ribbon vertical"></div>
+
+            <div class="gift-ribbon horizontal"></div>
+
+        </div>
+
+        <p id="giftHint">
+            Tap the gift 🎁
+        </p>
+
+    </div>
+
+
+    <div id="giftMessage"
+         class="hidden-gift-message">
+
+        <div class="emoji">
+            💖
+        </div>
+
+        <h2>
+            Surprise!
+        </h2>
+
+        <p>
+            athilleee......Ithil alla 🤭 onnude thazhathe button il thod..!
+        </p>
+
+        <p>
+            Thodd...Thodd ❤️
+        </p><br><br>
+
+        <button class="main-btn"
+                onclick="goTo('letter.html')">
+
+            Entte kath aan 🙈🙈 💌
+
+        </button>
+
+    </div>
+
+</main>
+
+<script src="js/script.js"></script>
+
+<script>
+
+function openGift() {
+
+    const box =
+        document.getElementById("giftBox");
+
+    const message =
+        document.getElementById("giftMessage");
+
+    const hint =
+        document.getElementById("giftHint");
+
+    box.classList.add("opened");
+
+    hint.style.display = "none";
+
+    setTimeout(() => {
+
+        message.classList.add("show");
+
+        createConfetti();
+
+    }, 700);
+
+}
+
+</script>
+
+</body>
+</html>

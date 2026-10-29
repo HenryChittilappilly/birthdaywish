@@ -1,0 +1,2265 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: 'DM Sans', sans-serif;
+
+    color: #fff;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #401a35 0%,
+            #1a0c1b 45%,
+            #090609 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* --------------------------
+   GENERAL PAGE
+--------------------------- */
+
+.page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 35px 20px 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* --------------------------
+   TYPOGRAPHY
+--------------------------- */
+
+h1 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(38px, 11vw, 62px);
+
+    line-height: 1.05;
+
+    margin: 12px 0 20px;
+}
+
+
+h1 span {
+
+    color: #ff8fbe;
+
+}
+
+
+h2 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+
+.description {
+
+    color: #e8d9e4;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    max-width: 390px;
+
+    margin: 0 auto 25px;
+}
+
+
+.small-text {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #ff8fbe;
+
+    font-weight: 700;
+}
+
+
+.tiny-text {
+
+    margin-top: 18px;
+
+    color: #a996a5;
+
+    font-size: 11px;
+}
+
+
+/* --------------------------
+   GLASS CARD
+--------------------------- */
+
+.glass-card {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+
+    animation: fadeUp 1s ease;
+}
+
+
+.emoji {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* --------------------------
+   BUTTON
+--------------------------- */
+
+.main-btn {
+
+    border: none;
+
+    outline: none;
+
+    padding: 16px 25px;
+
+    width: 100%;
+
+    max-width: 350px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #c52f69,
+        #ff83b6
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(255,92,154,0.3);
+
+    transition: 0.25s;
+}
+
+
+.main-btn:active {
+
+    transform: scale(0.95);
+
+}
+
+
+/* --------------------------
+   HEARTS
+--------------------------- */
+
+.hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+.heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 18px;
+
+    opacity: 0.5;
+
+    animation: floatHeart linear forwards;
+}
+
+
+/* --------------------------
+   VERIFICATION
+--------------------------- */
+
+.question-box {
+
+    margin-top: 25px;
+}
+
+
+.question {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+
+.answer {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 15px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.answer:active {
+
+    transform: scale(0.97);
+
+}
+
+
+.message {
+
+    margin-top: 20px;
+
+    line-height: 1.6;
+
+    min-height: 50px;
+}
+
+
+.success {
+
+    color: #7dffb2;
+}
+
+
+.error {
+
+    color: #ff7d9e;
+}
+
+
+/* --------------------------
+   SECTION
+--------------------------- */
+
+.section-card {
+
+    text-align: center;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin-bottom: 25px;
+}
+
+
+/* --------------------------
+   MEMORY CARDS
+--------------------------- */
+
+.memory-card {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    padding: 15px;
+
+    margin: 15px 0;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    text-align: center;
+
+    animation: fadeUp 0.8s ease;
+}
+
+
+.photo-wrapper {
+
+    width: 100%;
+
+    aspect-ratio: 3.5 / 6;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+.photo-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s;
+}
+
+
+.memory-card:hover img {
+
+    transform: scale(1.05);
+}
+
+
+.memory-date {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #ff8fbe;
+
+    margin-bottom: 8px;
+}
+
+
+.memory-card p:not(.memory-date) {
+
+    color: #d7c7d4;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    padding-bottom: 15px;
+}
+
+
+/* --------------------------
+   REASONS
+--------------------------- */
+
+.reason-card {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    position: relative;
+
+    padding: 30px 25px;
+
+    margin: 10px 0;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.035)
+    );
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    overflow: hidden;
+}
+
+
+.reason-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    color: rgba(255,255,255,0.12);
+
+    font-size: 45px;
+
+    font-weight: 700;
+}
+
+
+.reason-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.reason-card p {
+
+    color: #d7c7d4;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* --------------------------
+   NEXT
+--------------------------- */
+
+.next-container {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+
+/* --------------------------
+   GIFT
+--------------------------- */
+
+.gift-page {
+
+    text-align: center;
+}
+
+
+.gift-container {
+
+    margin: 45px 0;
+
+}
+
+
+.gift-box {
+
+    width: 150px;
+
+    height: 120px;
+
+    position: relative;
+
+    margin: auto;
+
+    cursor: pointer;
+
+    transition: transform 0.3s;
+}
+
+
+.gift-box:active {
+
+    transform: scale(0.92);
+}
+
+
+.gift-body {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 150px;
+
+    height: 95px;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f91,
+        #d93474
+    );
+
+    border-radius: 5px;
+}
+
+
+.gift-lid {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 0;
+
+    left: -7px;
+
+    width: 164px;
+
+    height: 35px;
+
+    background: #ff78ad;
+
+    border-radius: 7px;
+
+    transition: 0.7s;
+}
+
+
+.gift-ribbon {
+
+    position: absolute;
+
+    z-index: 3;
+
+    background: #ffd2e3;
+}
+
+
+.gift-ribbon.vertical {
+
+    width: 20px;
+
+    height: 120px;
+
+    left: 65px;
+
+    top: 0;
+}
+
+
+.gift-ribbon.horizontal {
+
+    width: 150px;
+
+    height: 18px;
+
+    left: 0;
+
+    top: 48px;
+}
+
+
+.gift-box.opened .gift-lid {
+
+    transform:
+        translateY(-70px)
+        rotate(-10deg);
+}
+
+
+#giftHint {
+
+    margin-top: 25px;
+
+    color: #ff9bc2;
+
+    animation: pulse 1.5s infinite;
+}
+
+
+.hidden-gift-message {
+
+    display: none;
+
+    text-align: center;
+
+    animation: fadeUp 1s ease;
+}
+
+
+.hidden-gift-message.show {
+
+    display: block;
+}
+
+
+.hidden-gift-message h2 {
+
+    font-size: 38px;
+
+}
+
+
+/* --------------------------
+   LETTER
+--------------------------- */
+
+.letter-page {
+
+    justify-content: flex-start;
+
+    padding-top: 50px;
+}
+
+
+.letter-card {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8fb,
+            #fbeaf1
+        );
+
+    color: #421d31;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.4);
+
+    animation: fadeUp 1s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Background image only */
+
+.letter-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("../images/photo3.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.40;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* Keep all content above the image */
+
+.letter-card > * {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.letter-top {
+
+    text-align: center;
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.letter-card .small-text {
+
+    color: #c83d72;
+
+    text-align: center;
+}
+
+
+.letter-card h1 {
+
+    color: #421d31;
+
+    font-size: 38px;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.letter-text {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #5c3046;
+}
+
+
+.letter-text p {
+
+    margin-bottom: 22px;
+}
+
+
+.signature {
+
+    text-align: right;
+
+    margin-top: 35px;
+}
+
+
+/* ============================================
+   BALLOON GAME PAGE
+============================================ */
+
+.balloon-page {
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255, 80, 140, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #160b1f 0%,
+            #090611 100%
+        );
+}
+
+
+/* ============================================
+   GAME CONTAINER
+============================================ */
+
+.balloon-game {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ============================================
+   HEADER
+============================================ */
+
+.game-header {
+    position: relative;
+    z-index: 20;
+
+    text-align: center;
+
+    padding:
+        35px
+        20px
+        20px;
+
+    pointer-events: none;
+}
+
+
+.small-title {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+
+    color: #ff8fb3;
+}
+
+
+.game-header h1 {
+    margin: 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: clamp(
+        32px,
+        8vw,
+        55px
+    );
+
+    color: white;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 90, 150, 0.5);
+}
+
+
+.game-description {
+    max-width: 450px;
+
+    margin:
+        12px
+        auto
+        15px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.72
+    );
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+.game-description strong {
+    color: #ff8fb3;
+}
+
+
+/* ============================================
+   COUNTER
+============================================ */
+
+.balloon-counter {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 100px;
+
+    padding:
+        8px
+        18px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.counter-divider {
+    margin:
+        0
+        8px;
+
+    opacity: 0.4;
+}
+
+
+#poppedCount {
+    color: #ff6f9f;
+
+    text-shadow:
+        0 0 15px
+        rgba(
+            255,
+            80,
+            140,
+            0.8
+        );
+}
+
+
+.game-message {
+    min-height: 22px;
+
+    margin-top: 10px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    font-size: 13px;
+}
+
+
+/* ============================================
+   BALLOON AREA
+============================================ */
+
+.balloon-area {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* ============================================
+   FLYING BALLOON
+============================================ */
+
+.flying-balloon {
+    position: absolute;
+
+    bottom: -130px;
+
+    width:
+        var(--balloon-size);
+
+    height:
+        calc(
+            var(--balloon-size) * 1.45
+        );
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transform-origin: center bottom;
+
+    animation:
+        balloonFly
+        var(--float-duration)
+        linear
+        var(--float-delay)
+        forwards;
+
+    z-index: 10;
+
+    filter:
+        drop-shadow(
+            0 10px 15px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+/* ============================================
+   BALLOON BODY
+============================================ */
+
+.flying-balloon .balloon-body {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72%;
+
+    border-radius:
+        50%
+        50%
+        48%
+        48%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(
+                255,
+                255,
+                255,
+                0.65
+            ),
+            transparent 14%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.18
+            ),
+            transparent 35%
+        ),
+        var(--balloon-color);
+
+    box-shadow:
+        inset -7px -10px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        ),
+
+        inset 5px 5px 10px
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+}
+
+
+/* ============================================
+   BALLOON SHINE
+============================================ */
+
+.balloon-shine {
+    position: absolute;
+
+    top: 10%;
+
+    left: 18%;
+
+    width: 20%;
+
+    height: 28%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+
+    transform:
+        rotate(
+            -25deg
+        );
+
+    filter:
+        blur(1px);
+}
+
+
+/* ============================================
+   BALLOON KNOT
+============================================ */
+
+.balloon-knot {
+    position: absolute;
+
+    top: 69%;
+
+    left: 43%;
+
+    width: 14%;
+
+    height: 10%;
+
+    background:
+        var(--balloon-color);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+}
+
+
+/* ============================================
+   BALLOON STRING
+============================================ */
+
+.balloon-string {
+    position: absolute;
+
+    top: 76%;
+
+    left: 50%;
+
+    width: 1px;
+
+    height: 55%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotate(
+            var(--rotation)
+        );
+}
+
+
+/* ============================================
+   INFINITE UPWARD FLIGHT
+============================================ */
+
+@keyframes balloonFly {
+
+    0% {
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            )
+            rotate(
+                var(--rotation)
+            );
+
+        opacity: 0;
+
+    }
+
+    8% {
+
+        opacity: 1;
+
+    }
+
+    25% {
+
+        transform:
+            translate3d(
+                calc(
+                    var(--drift) * 0.25
+                ),
+                -25vh,
+                0
+            )
+            rotate(
+                calc(
+                    var(--rotation) + 5deg
+                )
+            );
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(
+                calc(
+                    var(--drift) * -0.25
+                ),
+                -55vh,
+                0
+            )
+            rotate(
+                calc(
+                    var(--rotation) - 5deg
+                )
+            );
+
+    }
+
+    75% {
+
+        transform:
+            translate3d(
+                calc(
+                    var(--drift) * 0.5
+                ),
+                -80vh,
+                0
+            )
+            rotate(
+                calc(
+                    var(--rotation) + 5deg
+                )
+            );
+
+    }
+
+    92% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate3d(
+                var(--drift),
+                -125vh,
+                0
+            )
+            rotate(
+                var(--rotation)
+            );
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ============================================
+   POP ANIMATION
+============================================ */
+
+.flying-balloon.popped {
+    pointer-events: none;
+
+    animation:
+        balloonPop
+        0.25s
+        ease-out
+        forwards !important;
+}
+
+
+@keyframes balloonPop {
+
+    0% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+    45% {
+
+        transform:
+            scale(1.25);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ============================================
+   POP EFFECT
+============================================ */
+
+.balloon-pop-effect {
+    position: fixed;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    animation:
+        popEffect
+        0.7s
+        ease-out
+        forwards;
+}
+
+
+.balloon-pop-effect span {
+    position: absolute;
+
+    font-size: 24px;
+
+    animation:
+        popParticle
+        0.7s
+        ease-out
+        forwards;
+}
+
+
+.balloon-pop-effect span:nth-child(1) {
+    transform:
+        translate(
+            -30px,
+            -25px
+        );
+}
+
+
+.balloon-pop-effect span:nth-child(2) {
+    transform:
+        translate(
+            30px,
+            -30px
+        );
+}
+
+
+.balloon-pop-effect span:nth-child(3) {
+    transform:
+        translate(
+            0,
+            30px
+        );
+}
+
+
+@keyframes popEffect {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(0.5);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.4);
+
+    }
+
+}
+
+
+@keyframes popParticle {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ============================================
+   COMPLETION SCREEN
+============================================ */
+
+.game-complete {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(
+                255,
+                80,
+                140,
+                0.22
+            ),
+            rgba(
+                8,
+                5,
+                15,
+                0.97
+            ) 65%
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.05);
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.game-complete.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* ============================================
+   COMPLETION ICON
+============================================ */
+
+.complete-icon {
+
+    font-size: 70px;
+
+    margin-bottom: 10px;
+
+    animation:
+        celebrationBounce
+        1.2s
+        ease-in-out
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(
+                255,
+                100,
+                160,
+                0.6
+            )
+        );
+
+}
+
+
+@keyframes celebrationBounce {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            scale(1.08);
+
+    }
+
+}
+
+
+/* ============================================
+   COMPLETION HEADING
+============================================ */
+
+.game-complete h2 {
+
+    margin: 0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            10vw,
+            65px
+        );
+
+    color: white;
+
+    text-shadow:
+        0 0 30px
+        rgba(
+            255,
+            80,
+            150,
+            0.8
+        );
+}
+
+
+.birthday-message {
+
+    margin:
+        12px 0 5px;
+
+    font-size: 20px;
+
+    color: #ff9abb;
+
+    font-weight: 700;
+}
+
+
+.birthday-message strong {
+
+    color: white;
+
+}
+
+
+.last-message {
+
+    margin:
+        18px
+        0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.82
+        );
+}
+
+
+.heart-line {
+
+    margin:
+        10px 0 25px;
+
+    letter-spacing: 8px;
+
+    font-size: 18px;
+
+    animation:
+        heartPulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+
+    }
+
+}
+
+
+/* ============================================
+   FINAL BUTTON
+============================================ */
+
+.final-button {
+
+    border: none;
+
+    padding:
+        15px
+        28px;
+
+    border-radius: 50px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #c9186b
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(
+            255,
+            50,
+            120,
+            0.4
+        );
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.final-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 45px
+        rgba(
+            255,
+            50,
+            120,
+            0.55
+        );
+
+}
+
+
+.final-button:active {
+
+    transform:
+        scale(0.96);
+
+}
+
+
+/* ============================================
+   MOBILE
+============================================ */
+
+@media (max-width: 600px) {
+
+    .game-header {
+
+        padding:
+            25px
+            15px
+            10px;
+
+    }
+
+
+    .game-header h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .game-description {
+
+        font-size: 13px;
+
+        max-width: 320px;
+
+    }
+
+
+    .balloon-counter {
+
+        font-size: 19px;
+
+        min-width: 85px;
+
+    }
+
+
+    .game-message {
+
+        font-size: 12px;
+
+    }
+
+
+    .game-complete {
+
+        padding: 20px;
+
+    }
+
+
+    .complete-icon {
+
+        font-size: 58px;
+
+    }
+
+
+    .game-complete h2 {
+
+        font-size: 43px;
+
+    }
+
+
+    .birthday-message {
+
+        font-size: 18px;
+
+    }
+
+
+    .last-message {
+
+        font-size: 18px;
+
+    }
+
+
+    .final-button {
+
+        width: 100%;
+
+        max-width: 300px;
+
+        padding:
+            14px
+            20px;
+
+    }
+
+}
+
+
+/* ============================================
+   REDUCED MOTION
+============================================ */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .flying-balloon {
+
+        animation-duration: 12s;
+
+    }
+
+}
+
+/* --------------------------
+   FINAL PAGE
+--------------------------- */
+
+.final-body {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #551c40,
+            #160915 60%,
+            #050305
+        );
+
+    overflow: hidden;
+}
+
+
+#fireworks {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.final-page {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+
+.countdown {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 10;
+}
+
+
+.countdown span {
+
+    font-size: 100px;
+
+    font-family: 'Playfair Display', serif;
+
+    color: #ff8fbe;
+
+    animation: countdown 1s ease;
+}
+
+
+.countdown.hide {
+
+    display: none;
+}
+
+
+.final-content {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    opacity: 0;
+
+    transform: scale(0.8);
+
+    transition: 1s ease;
+}
+
+
+.final-content.show {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+.final-photo {
+
+    width: 180px;
+
+    height: 180px;
+
+    margin: 25px auto;
+
+    border-radius: 50%;
+
+    padding: 2.5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5c9a,
+            #ffd0e2
+        );
+}
+
+
+.final-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+.final-content h1 {
+
+    font-size: clamp(45px, 13vw, 70px);
+
+    text-shadow:
+        0 0 30px rgba(255,100,160,0.5);
+}
+
+
+.final-content h1 span {
+
+    font-size: 0.65em;
+}
+
+
+.final-content > p:not(.small-text):not(.signature) {
+
+    color: #e8d9e4;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+.big-heart {
+
+    font-size: 65px;
+
+    margin: 20px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+
+.final-message {
+
+    color: #ffb2cf !important;
+
+    font-weight: 600;
+}
+
+
+.final-content .signature {
+
+    margin-top: 30px;
+
+    color: #ad94a5;
+
+    font-size: 12px;
+}
+
+
+/* --------------------------
+   ANIMATIONS
+--------------------------- */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+@keyframes floating {
+
+    0%,100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+}
+
+
+@keyframes floatHeart {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 0.6;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes pulse {
+
+    0%,100% {
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes countdown {
+
+    from {
+
+        transform: scale(1.5);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+
+/* --------------------------
+   MOBILE
+--------------------------- */
+
+@media(max-width:480px) {
+
+    .page {
+
+        padding-left: 17px;
+
+        padding-right: 17px;
+    }
+
+
+    .glass-card {
+
+        padding: 35px 20px;
+    }
+
+
+    h1 {
+
+        font-size: 42px;
+    }
+
+
+    .letter-card {
+
+        padding: 30px 20px;
+    }
+
+
+    .letter-card h1 {
+
+        font-size: 34px;
+    }
+
+
+    .letter-text {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+}

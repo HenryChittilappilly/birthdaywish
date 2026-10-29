@@ -1,0 +1,268 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #3b1b32, #160b16 60%, #090509);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* ============================= */
+/* MAIN CONTAINER */
+/* ============================= */
+
+.lock-container {
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.lock-card {
+
+    width: 100%;
+    max-width: 550px;
+
+    margin: auto;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5);
+
+    animation: cardAppear 1.2s ease;
+}
+
+
+/* ============================= */
+/* LOCK ICON */
+/* ============================= */
+
+.lock-icon {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+.subtitle {
+
+    font-size: 18px;
+
+    opacity: 0.9;
+
+    margin-bottom: 10px;
+}
+
+.small-text {
+
+    font-size: 14px;
+
+    opacity: 0.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* ============================= */
+/* COUNTDOWN */
+/* ============================= */
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+
+.time-box {
+
+    min-width: 65px;
+
+    padding: 12px 8px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.time-box span {
+
+    display: block;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+.time-box small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    opacity: 0.6;
+
+    text-transform: uppercase;
+}
+
+
+.colon {
+
+    font-size: 25px;
+
+    opacity: 0.6;
+}
+
+
+/* ============================= */
+/* WAITING MESSAGE */
+/* ============================= */
+
+.waiting {
+
+    font-size: 14px;
+
+    opacity: 0.65;
+
+    line-height: 1.6;
+}
+
+
+.heart {
+
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 500px) {
+
+    .lock-card {
+        padding: 35px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .time-box {
+        min-width: 55px;
+    }
+
+    .time-box span {
+        font-size: 22px;
+    }
+
+    .colon {
+        font-size: 18px;
+    }
+}

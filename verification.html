@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Girlfriend Verification 💗</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<main class="page">
+
+    <div class="glass-card">
+
+        <div class="emoji">🔐</div>
+
+        <p class="small-text">SECURITY CHECK</p>
+
+        <h1>
+            Girlfriend
+            <br>
+            Verification
+        </h1>
+
+        <p class="description">
+            <!-- Before entering this highly classified
+            website, we need to make sure you are
+            actually the person this was made for. 😌 -->
+            Ith thorann nokkanenu munn nee thanne aanoo nn orappikkatte tta 😌
+        </p>
+
+        <div class="question-box">
+
+            <p class="question">
+                <!-- Who is the person this website
+                was created for? --> 
+                Ninakk njan adhyam aayitt ayacha msg entha...? para para 🤭
+            </p>
+
+            <button class="answer" onclick="correctAnswer()">
+                Da 😌
+            </button>
+
+            <button class="answer wrong" onclick="wrongAnswer()">
+                Hi 👋
+            </button>
+
+            <button class="answer wrong" onclick="wrongAnswer()">
+                Helloooo 👋
+            </button>
+
+        </div>
+
+        <p id="verificationMessage" class="message"></p>
+
+    </div>
+
+</main>
+
+<script src="js/script.js"></script>
+
+```html
+<script>
+
+let triedWrongAnswer = false;
+
+function correctAnswer() {
+
+    const message =
+        document.getElementById("verificationMessage");
+
+    if (triedWrongAnswer) {
+
+        message.innerHTML =
+            "😂 Enne pattikkan nokkanaa!!!<br>Enikk ariyaam nee wrong answer nokkiyennu 🤭❤️";
+
+        message.classList.remove("error");
+        // message.classList.add("success");
+
+        // createConfetti();
+
+        // Stay on the same page
+        return;
+
+    } else {
+
+        message.innerHTML =
+            "✅ Ippo orappich nee thanne 🤭!<br>Welcome, beautiful ❤️";
+
+        message.classList.remove("error");
+        message.classList.add("success");
+
+        createConfetti();
+
+        setTimeout(() => {
+            window.location.href = "memories.html";
+        }, 1800);
+    }
+}
+
+function wrongAnswer() {
+
+    triedWrongAnswer = true;
+
+    const message =
+        document.getElementById("verificationMessage");
+
+    message.innerHTML =
+        "❌ Nice try 😂<br>Wrong answer aanennu enikk ariyaam!";
+
+    message.classList.remove("success");
+    message.classList.add("error");
+}
+
+</script>
+
+</body>
+</html>
